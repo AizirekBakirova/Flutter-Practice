@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+// ignore: must_be_immutable
+class BigText extends StatelessWidget {
+  BigText(
+      {super.key,
+      this.color = const Color(0xff332d2b),
+      this.overflow = TextOverflow.ellipsis,
+      this.size = 20,
+      required this.text});
+  final Color? color;
+  final String text;
+  double size;
+  TextOverflow overflow;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      overflow: overflow,
+      style: TextStyle(
+          color: color,
+          fontWeight: FontWeight.w400,
+          fontFamily: 'Roboto',
+          fontSize: size),
+    );
+  }
+}
