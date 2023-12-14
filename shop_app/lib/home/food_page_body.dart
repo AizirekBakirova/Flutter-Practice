@@ -1,8 +1,10 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/home/main_food_page.dart';
+
 import 'package:shop_app/theme/app_colors.dart';
+import 'package:shop_app/widgets/big_text.dart';
 import 'package:shop_app/widgets/icon_and_text_widget.dart';
+import 'package:shop_app/widgets/small_text.dart';
 // import 'package:flutter/cupertino.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -97,7 +99,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               color: index.isEven ? Color(0xff69c5df) : Color(0xff9294cc),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/images/food3.jpg'),
+                image: AssetImage('assets/images/food5.webp'),
               ),
             ),
           ),

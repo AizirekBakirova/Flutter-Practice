@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/home/food_page_body.dart';
 
 import 'package:shop_app/theme/app_colors.dart';
+import 'package:shop_app/widgets/big_text.dart';
+import 'package:shop_app/widgets/small_text.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({super.key});
@@ -61,57 +63,6 @@ class _MainFoodPageState extends State<MainFoodPage> {
           FoodPageBody(),
         ],
       ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class SmallText extends StatelessWidget {
-  SmallText(
-      {super.key,
-      this.color = const Color(0xffccc7c5),
-      this.size = 12,
-      this.height = 1.2,
-      required this.text});
-  Color? color;
-  final String text;
-  double size;
-  double height;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-          color: color, fontFamily: 'Roboto', fontSize: size, height: height),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class BigText extends StatelessWidget {
-  BigText(
-      {super.key,
-      this.color = const Color(0xff332d2b),
-      this.overflow = TextOverflow.ellipsis,
-      this.size = 20,
-      required this.text});
-  final Color? color;
-  final String text;
-  double size;
-  TextOverflow overflow;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      maxLines: 1,
-      overflow: overflow,
-      style: TextStyle(
-          color: color,
-          fontWeight: FontWeight.w400,
-          fontFamily: 'Roboto',
-          fontSize: size),
     );
   }
 }
