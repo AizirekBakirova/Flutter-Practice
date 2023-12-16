@@ -33,4 +33,7 @@ class Dimensions {
   //list view size width (screen`s width size of Iphone12 is 390 and height is 880)
   static double listViewImg = screenWidth / 3.25;
   static double listViewTextContSize = screenWidth / 3.9;
+
+  //popular food
+  static double popularFoodImgSize = screenHeight / 2.41;
 }
