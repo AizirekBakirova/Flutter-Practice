@@ -29,4 +29,8 @@ class Dimensions {
 
   //icon Size
   static double iconSize24 = screenHeight / 35.17;
+
+  //list view size width (screen`s width size of Iphone12 is 390 and height is 880)
+  static double listViewImg = screenWidth / 3.25;
+  static double listViewTextContSize = screenWidth / 3.9;
 }

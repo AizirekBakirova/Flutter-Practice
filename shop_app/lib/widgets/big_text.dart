@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/theme/dimensions.dart';
+import 'package:flutter_test_application/theme/dimensions.dart';
 
 // ignore: must_be_immutable
 class BigText extends StatelessWidget {
@@ -23,7 +23,7 @@ class BigText extends StatelessWidget {
       style: TextStyle(
           color: color,
           fontWeight: FontWeight.w400,
-          fontFamily: 'Roboto',
+          fontFamily: 'Urbanist',
           fontSize: size == 0 ? Dimensions.font20 : size),
     );
   }

@@ -1,12 +1,11 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_application/theme/app_colors.dart';
+import 'package:flutter_test_application/theme/dimensions.dart';
+import 'package:flutter_test_application/widgets/big_text.dart';
+import 'package:flutter_test_application/widgets/icon_and_text_widget.dart';
+import 'package:flutter_test_application/widgets/small_text.dart';
 
-import 'package:shop_app/theme/app_colors.dart';
-import 'package:shop_app/theme/dimensions.dart';
-
-import 'package:shop_app/widgets/big_text.dart';
-import 'package:shop_app/widgets/icon_and_text_widget.dart';
-import 'package:shop_app/widgets/small_text.dart';
 // import 'package:flutter/cupertino.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -92,34 +91,84 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ),
 
         // list if food and image
-        Container(
-          height: 1500,
-          child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              // shrinkWrap: true,
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.only(
-                      left: Dimensions.width20, right: Dimensions.width20),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 120,
-                        height: 120,
+        ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                    left: Dimensions.width20,
+                    right: Dimensions.width20,
+                    bottom: Dimensions.height10),
+                child: Row(
+                  children: [
+                    // image section
+                    Container(
+                      width: Dimensions.listViewImg,
+                      height: Dimensions.listViewImg,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius20),
+                          color: Colors.white38,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage('assets/images/food2.jpg'))),
+                    ),
+                    // text container
+                    Expanded(
+                      child: Container(
+                        height: Dimensions.listViewTextContSize,
                         decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.radius20),
-                            color: Colors.white38,
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage('assets/images/food2.jpg'))),
-                      )
-                    ],
-                  ),
-                );
-              }),
-        )
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(Dimensions.radius20),
+                              bottomRight:
+                                  Radius.circular(Dimensions.radius20)),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: Dimensions.width10,
+                              right: Dimensions.width10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              BigText(text: 'Nutritious fruit meal in China'),
+                              SizedBox(
+                                height: Dimensions.height10,
+                              ),
+                              SmallText(text: 'With chinese characteristics'),
+                              SizedBox(
+                                height: Dimensions.height10,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  IconAndTextWidget(
+                                      icon: Icons.circle_sharp,
+                                      text: 'Normal',
+                                      iconColor: AppColors.iconColor1),
+                                  IconAndTextWidget(
+                                      icon: Icons.location_on,
+                                      text: '1.7km',
+                                      iconColor: AppColors.mainColor),
+                                  IconAndTextWidget(
+                                      icon: Icons.access_time_rounded,
+                                      text: '32min',
+                                      iconColor: AppColors.iconColor2),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            })
       ],
     );
   }

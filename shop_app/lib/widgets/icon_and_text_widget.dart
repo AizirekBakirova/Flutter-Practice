@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/theme/dimensions.dart';
-
-import 'package:shop_app/widgets/small_text.dart';
+import 'package:flutter_test_application/theme/dimensions.dart';
+import 'package:flutter_test_application/widgets/small_text.dart';
 
 class IconAndTextWidget extends StatelessWidget {
   const IconAndTextWidget(

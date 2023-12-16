@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/home/food_page_body.dart';
-
-import 'package:shop_app/theme/app_colors.dart';
-import 'package:shop_app/theme/dimensions.dart';
-import 'package:shop_app/widgets/big_text.dart';
-import 'package:shop_app/widgets/small_text.dart';
+import 'package:flutter_test_application/home/food_page_body.dart';
+import 'package:flutter_test_application/theme/app_colors.dart';
+import 'package:flutter_test_application/theme/dimensions.dart';
+import 'package:flutter_test_application/widgets/big_text.dart';
+import 'package:flutter_test_application/widgets/small_text.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({super.key});
