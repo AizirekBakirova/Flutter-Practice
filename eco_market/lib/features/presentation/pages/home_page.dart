@@ -98,22 +98,21 @@ class _HomePageState extends State<HomePage> {
           }),
       bottomNavigationBar: BottomNavigationBar(
         // showSelectedLabels: true,
-        showUnselectedLabels: true,
-        unselectedLabelStyle: const TextStyle(
-            color: Color(0xffD2D1D5),
+        // showUnselectedLabels: true,
+        unselectedLabelStyle: TextStyle(
+            color: Colors.black54,
             fontSize: 12,
             fontWeight: FontWeight.w500,
             fontFamily: ''),
         type: BottomNavigationBarType.shifting,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: Colors.black,
-            icon: Icon(
-              Icons.home,
-              // color: Color(0xffD2D1D5),
-            ),
-            label: 'Главная',
-          ),
+              icon: Icon(
+                Icons.home,
+                // color: Color(0xffD2D1D5),
+              ),
+              label: 'Главная',
+              backgroundColor: Colors.black38),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_bag_outlined,
