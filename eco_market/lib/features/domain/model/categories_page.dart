@@ -6,22 +6,22 @@ class Categories {
 }
 
 Categories fruits =
-    Categories(groceryName: 'Fruits', groceryImg: 'assets/images/fruits.jpeg');
+    Categories(groceryName: 'Фрукты', groceryImg: 'assets/images/fruits.jpeg');
 
 Categories driedFruits = Categories(
-    groceryName: 'Dried Fruits', groceryImg: 'assets/images/drfruits.jpg');
+    groceryName: 'Сухофрукты', groceryImg: 'assets/images/drfruits.jpg');
 
 Categories vegetables =
-    Categories(groceryName: 'Vegetables', groceryImg: 'assets/images/vegs.jpg');
+    Categories(groceryName: 'Овощи', groceryImg: 'assets/images/vegs.jpg');
 
 Categories greens =
-    Categories(groceryName: 'Greens', groceryImg: 'assets/images/greens.jpg');
+    Categories(groceryName: 'Зелень', groceryImg: 'assets/images/greens.jpg');
 
 Categories coffeeTea = Categories(
-    groceryName: 'Coffee and Tea', groceryImg: 'assets/images/teacof.webp');
+    groceryName: 'Чай кофе', groceryImg: 'assets/images/teacof.webp');
 
-Categories dairy =
-    Categories(groceryName: 'Dairy', groceryImg: 'assets/images/dairy.jpg');
+Categories dairy = Categories(
+    groceryName: 'Молочные продукты', groceryImg: 'assets/images/dairy.jpg');
 
 List<Categories> categoryList = [
   fruits,

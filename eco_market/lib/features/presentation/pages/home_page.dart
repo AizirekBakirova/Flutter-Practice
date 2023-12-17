@@ -44,9 +44,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
             child: Text(
-          'Эко Маркет',
+          'Эко-Маркет',
           style: TextStyle(
               color: Color(0xff1F1F1f),
               fontSize: 24,
@@ -55,38 +55,43 @@ class _HomePageState extends State<HomePage> {
         )),
       ),
       body: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, mainAxisExtent: 220),
           itemCount: categoryList.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding: EdgeInsets.all(5.5),
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.white),
-                child: Column(
-                  children: [
-                    ClipRRect(
+              padding: const EdgeInsets.all(5.5),
+              child: GridTile(
+                footer: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    categoryList[index].groceryName,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: ''),
+                  ),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        categoryList[index].groceryImg,
-                        height: 209,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                        color: Colors.black26,
-                        colorBlendMode: BlendMode.darken,
+                      color: Colors.white),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          categoryList[index].groceryImg,
+                          height: 209,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                          color: Colors.black38,
+                          colorBlendMode: BlendMode.darken,
+                        ),
                       ),
-                    ),
-                    // Text(
-                    //   categoryList[index].groceryName,
-                    //   style: TextStyle(
-                    //       color: Colors.white,
-                    //       fontSize: 20,
-                    //       fontWeight: FontWeight.w700,
-                    //       fontFamily: ''),
-                    // )
-                  ],
+                    ],
+                  ),
                 ),
               ),
             );
@@ -132,7 +137,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xff75DB1B),
+        selectedItemColor: const Color(0xff75DB1B),
         onTap: _onItemTapped,
       ),
     );
