@@ -78,15 +78,31 @@ class _HomePageState extends State<HomePage> {
                         colorBlendMode: BlendMode.darken,
                       ),
                     ),
+                    // Text(
+                    //   categoryList[index].groceryName,
+                    //   style: TextStyle(
+                    //       color: Colors.white,
+                    //       fontSize: 20,
+                    //       fontWeight: FontWeight.w700,
+                    //       fontFamily: ''),
+                    // )
                   ],
                 ),
               ),
             );
           }),
       bottomNavigationBar: BottomNavigationBar(
+        // showSelectedLabels: true,
+        showUnselectedLabels: true,
+        unselectedLabelStyle: const TextStyle(
+            color: Color(0xffD2D1D5),
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            fontFamily: ''),
         type: BottomNavigationBarType.shifting,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            backgroundColor: Colors.black,
             icon: Icon(
               Icons.home,
               // color: Color(0xffD2D1D5),
@@ -94,7 +110,6 @@ class _HomePageState extends State<HomePage> {
             label: 'Главная',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Colors.black,
             icon: Icon(
               Icons.shopping_bag_outlined,
               // color: Color(0xffD2D1D5)
@@ -104,8 +119,7 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.history,
-              //  color:
-              //  Color(0xffD2D1D5)
+              //  color: Color(0xffD2D1D5)
             ),
             label: 'История',
           ),
