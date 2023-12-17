@@ -1,3 +1,4 @@
+import 'package:eco_market/features/domain/model/categories_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,9 +26,10 @@ class _HomePageState extends State<HomePage> {
       body: GridView.builder(
           gridDelegate:
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemCount: categoryList.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Container(
                 height: 180,
                 width: 159,
@@ -35,7 +37,11 @@ class _HomePageState extends State<HomePage> {
                 // color: Color(0xffFFFFFF),
                 child: Column(
                   children: [
-                    Text(''),
+                    Text(categoryList[index].groceryName),
+                    Image.asset(
+                      categoryList[index].groceryImg,
+                      fit: BoxFit.cover,
+                    )
                   ],
                 ),
               ),
