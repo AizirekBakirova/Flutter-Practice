@@ -1,5 +1,7 @@
 import 'package:eco_market/features/domain/model/categories_page.dart';
 import 'package:flutter/material.dart';
+import 'package:footer/footer.dart';
+import 'package:footer/footer_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,13 +11,42 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 12, fontWeight: FontWeight.w500, fontFamily: '');
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Glavnaya',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Korzina',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 0: Istotiya',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 0: Info',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Center(
             child: Text(
-          'Eco Market',
+          'Эко Маркет',
           style: TextStyle(
               color: Color(0xff1F1F1f),
               fontSize: 24,
@@ -24,29 +55,72 @@ class _HomePageState extends State<HomePage> {
         )),
       ),
       body: GridView.builder(
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, mainAxisExtent: 220),
           itemCount: categoryList.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(5.5),
               child: Container(
-                height: 180,
-                width: 159,
-                color: Colors.red,
-                // color: Color(0xffFFFFFF),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white),
                 child: Column(
                   children: [
-                    Text(categoryList[index].groceryName),
-                    Image.asset(
-                      categoryList[index].groceryImg,
-                      fit: BoxFit.cover,
-                    )
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        categoryList[index].groceryImg,
+                        height: 209,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        color: Colors.black26,
+                        colorBlendMode: BlendMode.darken,
+                      ),
+                    ),
                   ],
                 ),
               ),
             );
           }),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              // color: Color(0xffD2D1D5),
+            ),
+            label: 'Главная',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.black,
+            icon: Icon(
+              Icons.shopping_bag_outlined,
+              // color: Color(0xffD2D1D5)
+            ),
+            label: 'Корзина',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.history,
+              //  color:
+              //  Color(0xffD2D1D5)
+            ),
+            label: 'История',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.help_center_outlined,
+              // color: Color(0xffD2D1D5),
+            ),
+            label: 'Инфо',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Color(0xff75DB1B),
+        onTap: _onItemTapped,
+      ),
     );
   }
 }
