@@ -1,7 +1,6 @@
-import 'package:eco_market/features/domain/model/categories_page.dart';
+import 'package:eco_market/features/presentation/pages/main_grocery_page.dart';
+import 'package:eco_market/features/presentation/theme/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:footer/footer.dart';
-import 'package:footer/footer_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,27 +11,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 12, fontWeight: FontWeight.w500, fontFamily: '');
-
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Glavnaya',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Korzina',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 0: Istotiya',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 0: Info',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -43,63 +21,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-            child: Text(
-          'Эко-Маркет',
-          style: TextStyle(
-              color: Color(0xff1F1F1f),
-              fontSize: 24,
-              fontWeight: FontWeight.w700,
-              fontFamily: 'TT Norms Pro'),
-        )),
-      ),
-      body: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, mainAxisExtent: 220),
-          itemCount: categoryList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: const EdgeInsets.all(5.5),
-              child: GridTile(
-                footer: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    categoryList[index].groceryName,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: ''),
-                  ),
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.asset(
-                          categoryList[index].groceryImg,
-                          height: 209,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          color: Colors.black38,
-                          colorBlendMode: BlendMode.darken,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          }),
+      appBar: _myAppBar(),
+      body: const MainGroceryPage(),
       bottomNavigationBar: BottomNavigationBar(
-        // showSelectedLabels: true,
-        // showUnselectedLabels: true,
-        unselectedLabelStyle: TextStyle(
+        unselectedLabelStyle: const TextStyle(
             color: Colors.black54,
             fontSize: 12,
             fontWeight: FontWeight.w500,
@@ -136,9 +61,23 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xff75DB1B),
+        selectedItemColor: AppColors.bottomNavBarColor,
         onTap: _onItemTapped,
       ),
+    );
+  }
+
+  AppBar _myAppBar() {
+    return AppBar(
+      title: const Center(
+          child: Text(
+        'Эко-Маркет',
+        style: TextStyle(
+            color: Color(0xff1F1F1f),
+            fontSize: 24,
+            fontWeight: FontWeight.w700,
+            fontFamily: 'TT Norms Pro'),
+      )),
     );
   }
 }
