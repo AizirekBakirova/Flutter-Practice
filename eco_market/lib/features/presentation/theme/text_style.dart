@@ -7,4 +7,10 @@ class AppTextStyle {
       fontSize: 20,
       fontWeight: FontWeight.w700,
       fontFamily: '');
+
+  static const appBarTextStyle = TextStyle(
+      color: Color(0xff1F1F1f),
+      fontSize: 24,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'TT Norms Pro');
 }
