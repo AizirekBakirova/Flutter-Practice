@@ -30,7 +30,7 @@ class TextFormFieldButton extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     fontFamily: '')),
           ),
-        )
+        ),
       ],
     );
   }
