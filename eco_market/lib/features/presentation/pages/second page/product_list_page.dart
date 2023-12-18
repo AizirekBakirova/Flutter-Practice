@@ -1,3 +1,4 @@
+import 'package:eco_market/features/domain/model/fruits_list.dart';
 import 'package:eco_market/features/presentation/theme/app_size.dart';
 import 'package:eco_market/features/presentation/theme/text_style.dart';
 import 'package:eco_market/features/presentation/widgets/chip_button.dart';
@@ -19,45 +20,125 @@ class _ProductListPageState extends State<ProductListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: Column(
-        children: [
-          TextFormFieldButton(),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                ChipButton(
-                  text: 'Все',
-                  chooseButton: chooseButton,
-                ),
-                ChipButton(
-                  text: 'Фрукты',
-                  chooseButton: chooseButton,
-                ),
-                ChipButton(
-                  text: 'Сухофрукты',
-                  chooseButton: chooseButton,
-                ),
-                ChipButton(
-                  text: 'Овощи',
-                  chooseButton: chooseButton,
-                ),
-                ChipButton(
-                  text: 'Зелень',
-                  chooseButton: chooseButton,
-                ),
-                ChipButton(
-                  text: 'Чай кофе',
-                  chooseButton: chooseButton,
-                ),
-                ChipButton(
-                  text: 'Молочные продукты',
-                  chooseButton: chooseButton,
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            TextFormFieldButton(),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ChipButton(
+                    text: 'Все',
+                  ),
+                  ChipButton(
+                    text: 'Фрукты',
+                  ),
+                  ChipButton(
+                    text: 'Сухофрукты',
+                  ),
+                  ChipButton(
+                    text: 'Овощи',
+                  ),
+                  ChipButton(
+                    text: 'Зелень',
+                  ),
+                  ChipButton(
+                    text: 'Чай кофе',
+                  ),
+                  ChipButton(
+                    text: 'Молочные продукты',
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+            SizedBox(
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 12.0,
+                      mainAxisSpacing: 12.0,
+                      mainAxisExtent: 230),
+                  itemCount: fruitsList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Color(0xfff8f8f8)),
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16)),
+                              child: Image.asset(
+                                fruitsList[index].fruitsImg,
+                                height: 96,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                    'Яблоко золотая радуга',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  '56 c',
+                                  style: TextStyle(
+                                      color: Color(0xff75db1b),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Color(0xff75db1b),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Добавить',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
+            )
+          ],
+        ),
       ),
     );
   }
