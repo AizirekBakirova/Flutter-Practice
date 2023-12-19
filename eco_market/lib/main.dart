@@ -1,6 +1,4 @@
 import 'package:eco_market/features/presentation/pages/home_page.dart';
-import 'package:eco_market/features/presentation/widgets/bottom_nav_bar.dart';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BottomNavBar(),
+      home: HomePage(),
     );
   }
 }
