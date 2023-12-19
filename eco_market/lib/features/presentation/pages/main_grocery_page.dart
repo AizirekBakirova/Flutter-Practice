@@ -1,5 +1,5 @@
 import 'package:eco_market/features/domain/model/categories_page.dart';
-import 'package:eco_market/features/presentation/pages/second%20page/product_list_page.dart';
+import 'package:eco_market/features/presentation/pages/product_list_page.dart';
 import 'package:eco_market/features/presentation/theme/app_colors.dart';
 import 'package:eco_market/features/presentation/theme/text_style.dart';
 import 'package:flutter/material.dart';
