@@ -1,5 +1,4 @@
 import 'package:eco_market/features/domain/model/fruits_list.dart';
-import 'package:eco_market/features/presentation/theme/app_size.dart';
 import 'package:eco_market/features/presentation/theme/text_style.dart';
 import 'package:eco_market/features/presentation/widgets/chip_button.dart';
 import 'package:eco_market/features/presentation/widgets/text_form_field_button.dart';
@@ -118,7 +117,7 @@ class _ProductListPageState extends State<ProductListPage> {
                               child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
-                                    primary: const Color(0xff75db1b),
+                                    backgroundColor: const Color(0xff75db1b),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12),
                                     ),
