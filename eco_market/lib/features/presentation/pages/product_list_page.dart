@@ -23,7 +23,7 @@ class _ProductListPageState extends State<ProductListPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TextFormFieldButton(),
+            const TextFormFieldButton(),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -52,15 +52,15 @@ class _ProductListPageState extends State<ProductListPage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 12.0,
                       mainAxisSpacing: 12.0,
@@ -72,7 +72,7 @@ class _ProductListPageState extends State<ProductListPage> {
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            color: Color(0xfff8f8f8)),
+                            color: const Color(0xfff8f8f8)),
                         child: Column(
                           children: [
                             Container(
@@ -85,8 +85,8 @@ class _ProductListPageState extends State<ProductListPage> {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
                               child: Align(
                                   alignment: Alignment.bottomLeft,
                                   child: Text(
@@ -97,11 +97,11 @@ class _ProductListPageState extends State<ProductListPage> {
                                         fontWeight: FontWeight.w500),
                                   )),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
@@ -118,12 +118,12 @@ class _ProductListPageState extends State<ProductListPage> {
                               child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
-                                    primary: Color(0xff75db1b),
+                                    primary: const Color(0xff75db1b),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                   ),
-                                  child: Text(
+                                  child: const Text(
                                     'Добавить',
                                     style: TextStyle(
                                         color: Colors.white,
