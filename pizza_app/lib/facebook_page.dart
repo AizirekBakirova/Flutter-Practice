@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TermsandService extends StatelessWidget {
-  const TermsandService({super.key});
+class FacebookPage extends StatefulWidget {
+  const FacebookPage({super.key});
 
+  @override
+  State<FacebookPage> createState() => _FacebookPageState();
+}
+
+class _FacebookPageState extends State<FacebookPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +31,7 @@ class TermsandService extends StatelessWidget {
                       width: 15,
                     ),
                     const Text(
-                      'Terms and Service',
+                      'Facebook Page',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 28,

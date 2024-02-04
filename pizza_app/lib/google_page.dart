@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TermsandService extends StatelessWidget {
-  const TermsandService({super.key});
+class GooglePage extends StatefulWidget {
+  const GooglePage({super.key});
 
+  @override
+  State<GooglePage> createState() => _GooglePageState();
+}
+
+class _GooglePageState extends State<GooglePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +31,7 @@ class TermsandService extends StatelessWidget {
                       width: 15,
                     ),
                     const Text(
-                      'Terms and Service',
+                      'Google Page',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 28,

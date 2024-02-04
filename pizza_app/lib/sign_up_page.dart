@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/policy.dart';
+import 'package:pizza_app/terms_and_service.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -8,25 +10,28 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<SignUpPage> {
+  bool? isChecked = false;
+  bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(right: 40, left: 40, top: 70),
+            padding: const EdgeInsets.only(right: 40, left: 40, top: 70),
             child: Row(
               children: [
                 IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.black,
                     )),
-                SizedBox(width: 50),
-                Center(
+                const SizedBox(width: 50),
+                const Center(
                   child: Text(
                     "Register",
                     style: TextStyle(
@@ -184,7 +189,7 @@ class _RegisterPageState extends State<SignUpPage> {
                 elevation: 10,
                 shadowColor: const Color(0xffef1c26),
                 child: TextFormField(
-                  obscureText: true,
+                  obscureText: _obscureText,
                   // validator: (value) {
                   //   if (value == null || value.isEmpty) {
                   //     return 'Password cannot be empty';
@@ -195,7 +200,7 @@ class _RegisterPageState extends State<SignUpPage> {
                   // },
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: consxt Color(0xfffefefe),
+                    fillColor: const Color(0xfffefefe),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(4),
                       borderSide: const BorderSide(
@@ -206,9 +211,19 @@ class _RegisterPageState extends State<SignUpPage> {
                         borderRadius: BorderRadius.circular(4),
                         borderSide: const BorderSide(
                             color: Color(0xffef1c26), width: 0)),
-                    suffixIcon: const Icon(
-                      Icons.visibility_off_outlined,
-                      color: Color(0xff827777),
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      child: Icon(
+                        _obscureText
+                            ? Icons.remove_red_eye_outlined
+                            : Icons.visibility_off_outlined,
+                        // ignore: prefer_const_constructors
+                        color: Color(0xff827777),
+                      ),
                     ),
                     hintText: 'Enter password',
                     hintStyle: const TextStyle(
@@ -220,38 +235,56 @@ class _RegisterPageState extends State<SignUpPage> {
               ),
             ),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Padding(
-            padding: const EdgeInsets.only(left: 45),
+            padding: const EdgeInsets.only(left: 50),
             child: Row(
               children: [
-                Icon(
-                  Icons.check_box_outline_blank_outlined,
-                  color: Color(0xff867d7d),
-                  size: 30,
-                ),
                 SizedBox(
+                  height: 20,
+                  width: 20,
+                  child: Checkbox(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      activeColor: const Color(0xffef1c26),
+                      value: isChecked,
+                      onChanged: (newBool) {
+                        setState(() {
+                          isChecked = newBool;
+                        });
+                      }),
+                ),
+                const SizedBox(
                   width: 10,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "I agree to the",
                       style: TextStyle(
                           color: Color(0xff867878),
-                          fontSize: 14,
+                          fontSize: 16,
                           fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
-                    Text(
-                      'Terms and Service',
-                      style: TextStyle(
-                          color: Color(0xffef1c26),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (contex) => const TermsandService()));
+                      },
+                      child: const Text(
+                        'Terms and Service',
+                        style: TextStyle(
+                            color: Color(0xffef1c26),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
                     )
                   ],
                 ),
@@ -259,25 +292,35 @@ class _RegisterPageState extends State<SignUpPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 85),
+            padding: const EdgeInsets.only(
+              left: 80,
+            ),
             child: Row(
               children: [
-                Text(
+                const Text(
                   "and",
                   style: TextStyle(
                       color: Color(0xff867878),
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: FontWeight.w600),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Text(
-                  'Privacy Policy',
-                  style: TextStyle(
-                      color: Color(0xffef1c26),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PrivacyPolicy()));
+                  },
+                  child: const Text(
+                    'Privacy Policy',
+                    style: TextStyle(
+                        color: Color(0xffef1c26),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600),
+                  ),
                 )
               ],
             ),

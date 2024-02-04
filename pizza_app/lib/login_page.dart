@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/facebook_page.dart';
+import 'package:pizza_app/google_page.dart';
 import 'package:pizza_app/sign_up_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,6 +11,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,14 +25,14 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.black,
                     )),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Text(
+                const Text(
                   "Let's Sign you in",
                   style: TextStyle(
                       color: Colors.black,
@@ -39,31 +42,31 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
-          SizedBox(height: 5),
-          Text(
+          const SizedBox(height: 5),
+          const Text(
             'Enter registered name',
             style: TextStyle(
                 color: Color(0xff867878),
                 fontSize: 14,
                 fontWeight: FontWeight.w600),
           ),
-          Text('to Sing in',
+          const Text('to Sing in',
               style: TextStyle(
                   color: Color(0xff867878),
                   fontSize: 14,
                   fontWeight: FontWeight.w600)),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 275),
+          const Padding(
+            padding: EdgeInsets.only(right: 275),
             child: Text('Name',
                 style: TextStyle(
                     color: Color(0xff867878),
                     fontSize: 14,
                     fontWeight: FontWeight.w600)),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Padding(
@@ -73,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 320,
               child: Material(
                 elevation: 10,
-                shadowColor: Color(0xffef1c26),
+                shadowColor: const Color(0xffef1c26),
                 child: TextFormField(
                   obscureText: true,
                   // validator: (value) {
@@ -107,18 +110,18 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 245),
+          const Padding(
+            padding: EdgeInsets.only(right: 245),
             child: Text('Password',
                 style: TextStyle(
                     color: Color(0xff867878),
                     fontSize: 14,
                     fontWeight: FontWeight.w600)),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Padding(
@@ -128,9 +131,9 @@ class _LoginPageState extends State<LoginPage> {
               width: 320,
               child: Material(
                 elevation: 10,
-                shadowColor: Color(0xffef1c26),
+                shadowColor: const Color(0xffef1c26),
                 child: TextFormField(
-                  obscureText: true,
+                  obscureText: _obscureText,
                   // validator: (value) {
                   //   if (value == null || value.isEmpty) {
                   //     return 'Password cannot be empty';
@@ -152,9 +155,18 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(4),
                         borderSide: const BorderSide(
                             color: Color(0xffef1c26), width: 0)),
-                    suffixIcon: Icon(
-                      Icons.remove_red_eye_outlined,
-                      color: Color(0xff827777),
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      child: Icon(
+                        _obscureText
+                            ? Icons.remove_red_eye_outlined
+                            : Icons.visibility_off_outlined,
+                        color: const Color(0xff827777),
+                      ),
                     ),
                     hintText: 'Enter password',
                     hintStyle: const TextStyle(
@@ -166,34 +178,52 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          SizedBox(height: 70),
-          Text(
+          const SizedBox(height: 70),
+          const Text(
             'Or Sign up with',
             style: TextStyle(
                 color: Color(0xff867878),
                 fontSize: 14,
                 fontWeight: FontWeight.w600),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/google.png',
-                scale: 25,
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => GooglePage()));
+                  });
+                },
+                child: Image.asset(
+                  'assets/google.png',
+                  scale: 25,
+                ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 40,
               ),
-              Image.asset(
-                'assets/facebook.png',
-                scale: 12,
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FacebookPage()));
+                  });
+                },
+                child: Image.asset(
+                  'assets/facebook.png',
+                  scale: 12,
+                ),
               ),
             ],
           ),
-          SizedBox(height: 100),
+          const SizedBox(height: 100),
           ElevatedButton(
               onPressed: () {
                 // if (formKey.currentState!.validate()) {
@@ -205,7 +235,7 @@ class _LoginPageState extends State<LoginPage> {
                 // }
               },
               style: ElevatedButton.styleFrom(
-                  shadowColor: Color(0xffef1c26),
+                  shadowColor: const Color(0xffef1c26),
                   elevation: 10,
                   backgroundColor: const Color(0xffEF1C26),
                   minimumSize: const Size(
@@ -221,18 +251,18 @@ class _LoginPageState extends State<LoginPage> {
                     fontWeight: FontWeight.w500,
                     color: Colors.white),
               )),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Don't have an account?",
                 style: TextStyle(
                     color: Color(0xff867878),
                     fontSize: 14,
                     fontWeight: FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               InkWell(
@@ -242,7 +272,7 @@ class _LoginPageState extends State<LoginPage> {
                       MaterialPageRoute(
                           builder: (context) => const SignUpPage()));
                 },
-                child: Text(
+                child: const Text(
                   'Register',
                   style: TextStyle(
                       color: Color(0xffef1c26),
