@@ -13,8 +13,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 50, left: 50, top: 70),
+          const Padding(
+            padding: EdgeInsets.only(right: 50, left: 50, top: 70),
             child: Row(
               children: [
                 Icon(Icons.arrow_back_ios, color: Colors.black),
@@ -29,31 +29,31 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
-          SizedBox(height: 5),
-          Text(
+          const SizedBox(height: 5),
+          const Text(
             'Enter registered name',
             style: TextStyle(
                 color: Color(0xff867878),
                 fontSize: 14,
                 fontWeight: FontWeight.w600),
           ),
-          Text('to Sing in',
+          const Text('to Sing in',
               style: TextStyle(
                   color: Color(0xff867878),
                   fontSize: 14,
                   fontWeight: FontWeight.w600)),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 275),
+          const Padding(
+            padding: EdgeInsets.only(right: 275),
             child: Text('Name',
                 style: TextStyle(
                     color: Color(0xff867878),
                     fontSize: 14,
                     fontWeight: FontWeight.w600)),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Padding(
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 320,
               child: Material(
                 elevation: 10,
-                shadowColor: Color(0xffef1c26),
+                shadowColor: const Color(0xffef1c26),
                 child: TextFormField(
                   obscureText: true,
                   // validator: (value) {
@@ -97,18 +97,18 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 245),
+          const Padding(
+            padding: EdgeInsets.only(right: 245),
             child: Text('Password',
                 style: TextStyle(
                     color: Color(0xff867878),
                     fontSize: 14,
                     fontWeight: FontWeight.w600)),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Padding(
@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 320,
               child: Material(
                 elevation: 10,
-                shadowColor: Color(0xffef1c26),
+                shadowColor: const Color(0xffef1c26),
                 child: TextFormField(
                   obscureText: true,
                   // validator: (value) {
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(4),
                         borderSide: const BorderSide(
                             color: Color(0xffef1c26), width: 0)),
-                    suffixIcon: Icon(
+                    suffixIcon: const Icon(
                       Icons.remove_red_eye_outlined,
                       color: Color(0xff827777),
                     ),
@@ -156,15 +156,15 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          SizedBox(height: 70),
-          Text(
+          const SizedBox(height: 70),
+          const Text(
             'Or Sign up with',
             style: TextStyle(
                 color: Color(0xff867878),
                 fontSize: 14,
                 fontWeight: FontWeight.w600),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
@@ -174,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
                 'assets/google.png',
                 scale: 25,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 40,
               ),
               Image.asset(
@@ -183,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ],
           ),
-          SizedBox(height: 100),
+          const SizedBox(height: 100),
           ElevatedButton(
               onPressed: () {
                 // if (formKey.currentState!.validate()) {
@@ -195,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                 // }
               },
               style: ElevatedButton.styleFrom(
-                  shadowColor: Color(0xffef1c26),
+                  shadowColor: const Color(0xffef1c26),
                   elevation: 10,
                   backgroundColor: const Color(0xffEF1C26),
                   minimumSize: const Size(
@@ -211,8 +211,8 @@ class _LoginPageState extends State<LoginPage> {
                     fontWeight: FontWeight.w500,
                     color: Colors.white),
               )),
-          SizedBox(height: 30),
-          Row(
+          const SizedBox(height: 30),
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
