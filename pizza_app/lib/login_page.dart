@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 40,
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 280),
+            padding: const EdgeInsets.only(right: 275),
             child: Text('Name',
                 style: TextStyle(
                     color: Color(0xff867878),
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 30,
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 250),
+            padding: const EdgeInsets.only(right: 245),
             child: Text('Password',
                 style: TextStyle(
                     color: Color(0xff867878),
@@ -142,7 +142,10 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(4),
                         borderSide: const BorderSide(
                             color: Color(0xffef1c26), width: 0)),
-                    // prefixIcon: Icon(Icons.remove_red_eye_outlined),
+                    suffixIcon: Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Color(0xff827777),
+                    ),
                     hintText: 'Enter password',
                     hintStyle: const TextStyle(
                         color: Color(0xff827777),
