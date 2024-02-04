@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<SignUpPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(right: 50, left: 50, top: 70),
+            padding: EdgeInsets.only(right: 40, left: 40, top: 70),
             child: Row(
               children: [
-                Icon(Icons.arrow_back_ios, color: Colors.black),
-                SizedBox(width: 70),
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.black,
+                    )),
+                SizedBox(width: 50),
                 Center(
                   child: Text(
                     "Register",
@@ -188,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   // },
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: const Color(0xfffefefe),
+                    fillColor: consxt Color(0xfffefefe),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(4),
                       borderSide: const BorderSide(

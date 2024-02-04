@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/initial_page.dart';
 import 'package:pizza_app/login_page.dart';
-import 'package:pizza_app/register_page.dart';
+import 'package:pizza_app/sign_up_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RegisterPage(),
+      home: const InitialPage(),
     );
   }
 }
