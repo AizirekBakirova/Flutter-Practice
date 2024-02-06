@@ -65,7 +65,7 @@ class _InitialPageState extends State<InitialPage> {
                 shape: BeveledRectangleBorder(
                     borderRadius: BorderRadius.circular(3))),
             child: const Text(
-              'Sign in',
+              'Войти',
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -96,7 +96,7 @@ class _InitialPageState extends State<InitialPage> {
                   ),
                 )),
             child: const Text(
-              'Register',
+              'Регистрация',
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
