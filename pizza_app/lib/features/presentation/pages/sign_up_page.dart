@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_app/policy.dart';
-import 'package:pizza_app/terms_and_service.dart';
+import 'package:pizza_app/features/presentation/pages/policy.dart';
+import 'package:pizza_app/features/presentation/pages/terms_and_service.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

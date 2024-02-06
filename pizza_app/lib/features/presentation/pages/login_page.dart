@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_app/facebook_page.dart';
-import 'package:pizza_app/google_page.dart';
-import 'package:pizza_app/sign_up_page.dart';
+import 'package:pizza_app/features/presentation/pages/facebook_page.dart';
+import 'package:pizza_app/features/presentation/pages/google_page.dart';
+import 'package:pizza_app/features/presentation/pages/sign_up_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:pizza_app/login_page.dart';
-import 'package:pizza_app/sign_up_page.dart';
+import 'package:pizza_app/features/presentation/pages/login_page.dart';
+import 'package:pizza_app/features/presentation/pages/sign_up_page.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
